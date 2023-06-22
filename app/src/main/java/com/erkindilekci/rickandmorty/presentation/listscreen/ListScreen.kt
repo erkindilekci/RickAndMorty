@@ -24,6 +24,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -45,6 +46,7 @@ import com.erkindilekci.rickandmorty.data.remote.dto.Origin
 import com.erkindilekci.rickandmorty.data.remote.dto.Result
 import com.erkindilekci.rickandmorty.presentation.ui.theme.RickBlue
 import com.erkindilekci.rickandmorty.util.Screen
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun ListScreen(
@@ -52,6 +54,12 @@ fun ListScreen(
     viewModel: ListScreenViewModel = hiltViewModel()
 ) {
     val characters = viewModel.pager.collectAsLazyPagingItems()
+
+    val systemUiController = rememberSystemUiController()
+
+    SideEffect {
+        systemUiController.setStatusBarColor(RickBlue)
+    }
 
     Scaffold(
         topBar = {

@@ -17,8 +17,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -59,7 +62,7 @@ fun DetailsScreen(
     val selectedCharacter by viewModel.selectedCharacter.collectAsState()
 
     Column(modifier = Modifier.fillMaxSize()) {
-        selectedCharacter?.let { ListScreenItem(item = it) }
+        selectedCharacter?.let { ListScreenItem(item = it, navController = navController) }
     }
 }
 
@@ -67,7 +70,8 @@ fun DetailsScreen(
 @Composable
 fun ListScreenItem(
     item: CharacterDetail,
-    viewModel: DetailsScreenViewModel = hiltViewModel()
+    viewModel: DetailsScreenViewModel = hiltViewModel(),
+    navController: NavController
 ) {
     val colorPalette by viewModel.colorPalette
     val context = LocalContext.current
@@ -76,7 +80,6 @@ fun ListScreenItem(
     var vibrant by remember { mutableStateOf("#000000") }
     var darkVibrant by remember { mutableStateOf("#000000") }
     var onDarkVibrant by remember { mutableStateOf("#FFFFFF") }
-
 
     val systemUiController = rememberSystemUiController()
 
@@ -117,12 +120,27 @@ fun ListScreenItem(
                     .weight(1f),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
+                IconButton(
+                    onClick = { navController.popBackStack() },
+                    modifier = Modifier
+                        .align(Alignment.Start)
+                        .padding(top = 16.dp, start = 24.dp, bottom = 16.dp)
+                        .size(32.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        tint = Color.White,
+                        modifier = Modifier.size(32.dp)
+                    )
+                }
+
                 Text(
                     text = item.name,
                     style = MaterialTheme.typography.headlineLarge,
                     fontWeight = FontWeight.Bold,
                     color = Color.White,
-                    modifier = Modifier.padding(top = 48.dp, start = 16.dp, end = 16.dp),
+                    modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
                     textAlign = TextAlign.Center
                 )
 
