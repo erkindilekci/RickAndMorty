@@ -3,6 +3,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/erkindil/GithubRepositoryEdit/main/rickand.png" alt="Rick and Morty">
 </div>
+
 #
 <img src="https://raw.githubusercontent.com/erkindil/GithubRepositoryEdit/main/rickmorty.gif" align="right" width="200">
 
