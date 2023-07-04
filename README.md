@@ -1,10 +1,10 @@
 # Rick & Morty
 
-<div align="center">
+<p align="center">
   <img src="https://raw.githubusercontent.com/erkindil/GithubRepositoryEdit/main/rickand.png" alt="Rick and Morty">
-</div>
+</p>
 
-#
+
 <img src="https://raw.githubusercontent.com/erkindil/GithubRepositoryEdit/main/rickmorty.gif" align="right" width="180">
 
 ## Technologies
