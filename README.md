@@ -4,7 +4,6 @@
   <img src="https://raw.githubusercontent.com/erkindil/GithubRepositoryEdit/main/rickand.png" alt="Rick and Morty">
 </p>
 
-
 <img src="https://raw.githubusercontent.com/erkindil/GithubRepositoryEdit/main/rickmorty.gif" align="right" width="180">
 
 ## Technologies
